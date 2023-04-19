@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Preferences"
     android:background="@drawable/background1"
+    android:id="@+id/layout"
     >
 
     <TextView
@@ -25,14 +26,23 @@
         />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/colorpickerbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/colorpickerbtn"
         android:layout_below="@+id/preferences"
-        android:text="Color Picker"
+        android:layout_centerInParent="true"
         android:layout_marginTop="150dp"
-        android:layout_centerHorizontal="true"
         android:backgroundTint="@color/teal_700"
-        />
+        android:text="Color Picker" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/homescreenbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/colorpickerbtn"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="@color/teal_700"
+        android:text="Back to home" />
 
 </RelativeLayout>

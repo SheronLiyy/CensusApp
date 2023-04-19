@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DataScreen"
+    android:background="@drawable/background1">
+
+    <TextView
+        android:id="@+id/data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="50dp"
+        android:gravity="center"
+        android:text="Data"
+        android:typeface="serif"
+        android:textColor="@color/white"
+        android:textSize="35dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/data"
+        android:layout_marginLeft="20dp"
+        android:text="Name :"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        android:typeface="serif"
+        />
+
+    <TextView
+        android:id="@+id/age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="20dp"
+        android:text="Age :"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        android:typeface="serif"
+        />
+
+    <TextView
+        android:id="@+id/maleorfemale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/age"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="20dp"
+        android:text="Male/Female :"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        android:typeface="serif"
+        />
+
+    <TextView
+        android:id="@+id/photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/maleorfemale"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="20dp"
+        android:text="Take photo :"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        android:typeface="serif"
+        />
+
+    <Button
+        android:id="@+id/cameraButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Open Camera"
+        android:layout_below="@id/radio_male"
+        android:layout_toRightOf="@id/photo"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/entername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/data"
+        android:layout_marginTop="6dp"
+        android:layout_marginRight="50dp"
+        android:layout_toRightOf="@+id/name"
+        android:background="#30ffffff"
+        android:layout_marginLeft="20dp"
+        android:textSize="20dp"
+        android:textColor="@color/white" />
+
+    <EditText
+        android:id="@+id/enterage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/entername"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="50dp"
+        android:layout_toRightOf="@+id/name"
+        android:background="#30ffffff"
+        android:layout_marginLeft="20dp"
+        android:textSize="20dp"
+        android:textColor="@color/white" />
+
+    <RadioButton android:id="@+id/radio_male"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         android:layout_below="@id/age"
+        android:layout_toRightOf="@id/maleorfemale"
+        android:gravity="center"
+        android:text="male"
+        android:onClick="onRadioButtonClicked"
+        android:textColor="@color/white"
+        android:layout_marginTop="20dp"/>
+
+    <RadioButton android:id="@+id/radio_female"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/radio_male"
+        android:layout_below="@id/age"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="female"
+        android:textColor="@color/white"
+        android:onClick="onRadioButtonClicked"/>
+
+</RelativeLayout>
