@@ -22,11 +22,19 @@
         android:textSize="35dp"
         android:textStyle="bold"/>
 
+    <ImageView
+        android:id="@+id/image_view_person"
+        android:layout_below="@id/data"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@android:color/darker_gray"
+        android:src="@drawable/person2_image" />
+
     <TextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/data"
+        android:layout_below="@+id/image_view_person"
         android:layout_marginLeft="20dp"
         android:text="Name :"
         android:textColor="@color/white"
@@ -78,20 +86,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Open Camera"
-        android:layout_below="@id/radio_male"
+        android:layout_below="@id/radioBtnGroup"
         android:layout_toRightOf="@id/photo"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:backgroundTint="@color/teal_700"
+        />
 
     <EditText
         android:id="@+id/entername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/data"
+        android:layout_below="@+id/image_view_person"
         android:layout_marginTop="6dp"
         android:layout_marginRight="50dp"
         android:layout_toRightOf="@+id/name"
@@ -100,6 +110,33 @@
         android:textSize="20dp"
         android:textColor="@color/white" />
 
+    <RadioGroup
+        android:id="@+id/radioBtnGroup"
+        android:layout_below="@id/enterage"
+        android:layout_toRightOf="@id/maleorfemale"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/maleRbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="30dp"
+            android:text="male"
+            android:textColor="@color/white"
+            android:onClick="checkButton"/>
+
+        <RadioButton
+            android:id="@+id/femaleRbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="female"
+            android:textColor="@color/white"
+            android:onClick="checkButton"/>
+    </RadioGroup>
     <EditText
         android:id="@+id/enterage"
         android:layout_width="match_parent"
@@ -113,26 +150,24 @@
         android:textSize="20dp"
         android:textColor="@color/white" />
 
-    <RadioButton android:id="@+id/radio_male"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-         android:layout_below="@id/age"
-        android:layout_toRightOf="@id/maleorfemale"
-        android:gravity="center"
-        android:text="male"
-        android:onClick="onRadioButtonClicked"
-        android:textColor="@color/white"
-        android:layout_marginTop="20dp"/>
 
-    <RadioButton android:id="@+id/radio_female"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/savebtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/radio_male"
-        android:layout_below="@id/age"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:text="female"
-        android:textColor="@color/white"
-        android:onClick="onRadioButtonClicked"/>
+        android:layout_below="@id/cameraButton"
+        android:layout_centerInParent="true"
+        android:backgroundTint="@color/teal_700"
+        android:text="SAVE" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/viewbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/savebtn"
+        android:layout_centerInParent="true"
+        android:backgroundTint="@color/teal_700"
+        android:text="View" />
+
 
 </RelativeLayout>
