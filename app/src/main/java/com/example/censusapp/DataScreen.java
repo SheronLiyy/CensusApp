@@ -49,19 +49,11 @@ public class DataScreen extends AppCompatActivity {
             saveButton = (Button)findViewById(R.id.savebtn);
             viewButton = (Button)findViewById(R.id.viewbtn);
             radioGroup = (RadioGroup)findViewById(R.id.radioBtnGroup);
-            name = findViewById(R.id.entername);
-            age = findViewById(R.id.enterage);
-            imageView = findViewById(R.id.image_view_person);
+            name = (EditText) findViewById(R.id.entername);
+            age = (EditText) findViewById(R.id.enterage);
+            imageView = (ImageView) findViewById(R.id.image_view_person);
 
             DB = new DBHelper(this);
-
-        viewButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(DataScreen.this, UserList.class));
-
-            }
-        });
 
 
         if(ContextCompat.checkSelfPermission(DataScreen.this, android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
@@ -112,7 +104,12 @@ public class DataScreen extends AppCompatActivity {
                 }
             });
 
-
+        viewButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(DataScreen.this, UserList.class));
+            }
+        });
 
         }
 
