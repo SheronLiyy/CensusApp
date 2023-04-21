@@ -16,12 +16,12 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase DB) {
-        DB.execSQL("create table UserDetails(name TEXT primary key, age TEXT, gender TEXT,entryTime TEXT )");
+        DB.execSQL("create table UserDetails(name TEXT primary key, age TEXT, gender TEXT)");
 
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase DB, int i, int i1) {
+    public void onUpgrade(SQLiteDatabase DB, int i, int ii) {
         DB.execSQL("drop table if exists UserDetails");
     }
 

@@ -55,6 +55,15 @@ public class DataScreen extends AppCompatActivity {
 
             DB = new DBHelper(this);
 
+        viewButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(DataScreen.this, UserList.class));
+
+            }
+        });
+
+
         if(ContextCompat.checkSelfPermission(DataScreen.this, android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
             ActivityCompat.requestPermissions(DataScreen.this, new String[]{android.Manifest.permission.CAMERA}, 101);
         }
@@ -78,7 +87,11 @@ public class DataScreen extends AppCompatActivity {
                     int selectedId = radioGroup.getCheckedRadioButtonId();
                     genderRadioButton = (RadioButton) findViewById(selectedId);
 
+                    String nameText = name.getText().toString();
+                    String ageText = age.getText().toString();
+                    String genderText = genderRadioButton.getText().toString();
 
+                    Boolean savedData = DB.saveuserdata(nameText,ageText,genderText);
 
                     if(selectedId==-1){
                         Toast.makeText(DataScreen.this,"Select your gender", Toast.LENGTH_SHORT).show();
@@ -87,60 +100,19 @@ public class DataScreen extends AppCompatActivity {
                     } else if (age.getText().toString().isEmpty()) {
                         Toast.makeText(DataScreen.this,"Type your age", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(DataScreen.this, "Saved user data", Toast.LENGTH_SHORT).show();
-                    }
-
-                    String nameText = name.getText().toString();
-                    String ageText = age.getText().toString();
-                    String genderText = genderRadioButton.getText().toString();
-
-
-                    Boolean savedData = DB.saveuserdata(nameText,ageText,genderText);
-
-                    if (TextUtils.isEmpty(nameText) || TextUtils.isEmpty(ageText) || TextUtils.isEmpty(gender)){
-                        Toast.makeText(DataScreen.this,"Add user details", Toast.LENGTH_SHORT).show();
-                        return;
-                    } else{
                         if(savedData == true){
-                            name.setText("");
-                            age.setText("");
-                            imageView.setImageResource(R.drawable.person2_image);
+                            Toast.makeText(DataScreen.this, "Saved user data", Toast.LENGTH_SHORT).show();
+                        } else{
+                            Toast.makeText(DataScreen.this, "User data not saved", Toast.LENGTH_SHORT).show();
                         }
-                        else{
-                            Toast.makeText(DataScreen.this, "Exists User Details", Toast.LENGTH_SHORT).show();
-                        }
+
                     }
-                    
-                   startActivity(new Intent(DataScreen.this, UserList.class));
+
+
                 }
             });
 
 
-            viewButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Cursor WL = DB.gettext();
-                    if (WL.getCount() == 0){
-                        Toast.makeText(DataScreen.this, "User data does not exist", Toast.LENGTH_SHORT).show();
-                        return;
-                    }
-
-                    StringBuffer buffer = new StringBuffer();
-                    while (WL.moveToNext()){
-                        buffer.append("Name: " + WL.getString(0) + "\n");
-                        buffer.append("Age: " + WL.getString(1) + "\n");
-                        buffer.append("Gender: " + WL.getString(2) + "\n\n");
-
-                    }
-
-                    AlertDialog.Builder builder = new AlertDialog.Builder(DataScreen.this);
-                    builder.setCancelable(true);
-                    builder.setTitle("User Data");
-                    builder.setMessage(buffer.toString());
-                    builder.show();
-
-                }
-            });
 
         }
 
