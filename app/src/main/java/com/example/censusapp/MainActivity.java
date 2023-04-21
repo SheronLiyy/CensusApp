@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        Intent intent = new Intent(MainActivity.this,LoginScreen.class);
+        Intent intent = new Intent(MainActivity.this,HomeScreen.class);
         startActivity(intent);
         finish();
 
