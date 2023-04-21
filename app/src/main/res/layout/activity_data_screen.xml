@@ -110,7 +110,7 @@
         android:textSize="20dp"
         android:textColor="@color/white" />
 
-    <RadioGroup
+        <RadioGroup
         android:id="@+id/radioBtnGroup"
         android:layout_below="@id/enterage"
         android:layout_toRightOf="@id/maleorfemale"
@@ -127,7 +127,7 @@
             android:layout_marginRight="30dp"
             android:text="male"
             android:textColor="@color/white"
-            android:onClick="checkButton"/>
+            />
 
         <RadioButton
             android:id="@+id/femaleRbtn"
@@ -135,7 +135,7 @@
             android:layout_height="match_parent"
             android:text="female"
             android:textColor="@color/white"
-            android:onClick="checkButton"/>
+            />
     </RadioGroup>
     <EditText
         android:id="@+id/enterage"
