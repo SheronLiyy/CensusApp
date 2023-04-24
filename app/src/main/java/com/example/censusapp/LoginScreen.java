@@ -14,7 +14,7 @@ import android.widget.Toast;
 public class LoginScreen extends AppCompatActivity {
 
     private Button loginBtn;
-    //private Button signupBtn;
+    private Button signupBtn;
     private EditText editText;
 
     public static final String SHARED_PREFS = "sharedPrefs";
@@ -27,6 +27,7 @@ public class LoginScreen extends AppCompatActivity {
         setContentView(R.layout.activity_login_screen);
 
         loginBtn = (Button)findViewById(R.id.loginbtn);
+        signupBtn = (Button)findViewById(R.id.signupbtn);
         //signupBtn = (Button) findViewById(R.id.signupbtn);
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
@@ -60,15 +61,15 @@ public class LoginScreen extends AppCompatActivity {
                 }
             }
 
-       /* signupBtn.setOnClickListener(new View.OnClickListener() {
+
+        });
+
+        signupBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LoginScreen.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }
-        });*/
-
-
         });
 }}

@@ -22,11 +22,14 @@
         android:textSize="35dp"
         android:textStyle="bold"/>
 
+
+
     <ImageView
         android:id="@+id/image_view_person"
         android:layout_below="@id/data"
         android:layout_width="match_parent"
         android:layout_height="200dp"
+
         android:background="@android:color/darker_gray"
         android:src="@drawable/person2_image" />
 
@@ -157,6 +160,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/cameraButton"
         android:layout_centerInParent="true"
+        android:layout_marginLeft="-20dp"
+        android:layout_marginTop="-1dp"
         android:backgroundTint="@color/teal_700"
         android:text="SAVE" />
 
@@ -165,9 +170,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/savebtn"
-        android:layout_centerInParent="true"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="18dp"
         android:backgroundTint="@color/teal_700"
         android:text="View" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/sendtocloudbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/viewbtn"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="126dp"
+        android:backgroundTint="@color/teal_700"
+        android:text="Send to cloud" />
 
 
 </RelativeLayout>
